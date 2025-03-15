@@ -1,6 +1,9 @@
 --// Custom Display Platform Exlpoit by MikeFeng © GPL 3.0 (2025)
 
 if game.PlaceId == 6520999642 then
+    if _G.FNFRemixACPD or getgenv and getgenv().FNFRemixACPD then
+        return
+    end
     local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor() or 'Unknown'
     local CoreGui = Cloneref(game:GetService'CoreGui')
     local function Message(Text)
@@ -70,6 +73,11 @@ if game.PlaceId == 6520999642 then
         Sound.SoundId = 'rbxassetid://4590662766'
         Sound.PlayOnRemove = true
         Sound:Destroy()
+        if getgenv then
+            getgenv().FNFRemixACPD = true
+        else
+            _G.FNFRemixACPD = true
+        end
     else
         Message(`Incompatible executor '{ExecutorName}'{'\n'}(missing queue_on_teleport)`)
     end
