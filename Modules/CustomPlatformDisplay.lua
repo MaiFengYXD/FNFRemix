@@ -9,7 +9,7 @@ if game.PlaceId == 6520999642 then
         Message:Destroy()
     end
     if isfile and readfile and writefile then
-        writefile('FNFRemixDisplayContext.txt', Context ~= nil and tostring(Context) or '😇')
+        writefile('FNFRemixDisplayContext.txt', tostring(Context ~= nil and Context or '😇'))
         local StarterGui = game:GetService'StarterGui'
         local function Alert()
             local Sound = Instance.new('Sound', game:GetService'SoundService')
