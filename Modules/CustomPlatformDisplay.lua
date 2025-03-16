@@ -1,4 +1,4 @@
---// Custom Display Platform Exlpoit by MikeFeng © GPL 3.0 (2025)
+--// Custom Display Platform by MikeFeng © GPL 3.0 (2025)
 
 if game.PlaceId == 6520999642 then
     local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor() or ''
@@ -46,7 +46,7 @@ if game.PlaceId == 6520999642 then
                     local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor() or ''
                     if not (isfile and readfile) then
                         Message = Instance.new('Message', Cloneref(game:GetService'CoreGui'))
-                        Message.Text = 'Your executor '{ExecutorName}' does not support this script\n(missing isfile, readfile)'
+                        Message.Text = `Your executor '{ExecutorName}' does not support this script\n(missing isfile, readfile)`
                         task.wait(5)
                         return Message:Destroy()
                     end
