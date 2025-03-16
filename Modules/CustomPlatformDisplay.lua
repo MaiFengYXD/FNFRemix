@@ -1,7 +1,7 @@
 --// Custom Display Platform by MikeFeng © GPL 3.0 (2025)
 
 if game.PlaceId == 6520999642 then
-    local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor() or 'Unknown'
+    local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor() or ''
     local CoreGui = Cloneref(game:GetService'CoreGui')
     local function Message(Text)
         local Message = Instance.new('Message', CoreGui)
@@ -10,14 +10,14 @@ if game.PlaceId == 6520999642 then
         Message:Destroy()
     end
     if not (isfile and readfile and writefile) then
-        return Message(`Your executor '{ExecutorName}' does not support this script{'\n'}(missing isfile, readfile, writefile)`)
+        return Message(`Your executor "{ExecutorName}" does not support this script{'\n'}(missing isfile, readfile, writefile)`)
     end
     writefile('FNFRemixDisplayContext.txt', Context ~= nil and tostring(Context) or '😇')
     local StarterGui = Cloneref(game:GetService'StarterGui')
     if _G.FNFRemixACPD or getgenv and getgenv().FNFRemixACPD then
         StarterGui:SetCore('SendNotification', {
             Title = 'Changed Context!',
-            Text = `Your display platform context has been changed to '{Context}', rejoin to see your changes.`,
+            Text = `Your display platform context has been changed to "{Context}", rejoin to see your changes.`,
             Duration = 5
         })
     else
@@ -46,7 +46,7 @@ if game.PlaceId == 6520999642 then
                     local Cloneref = cloneref or function(x) return x end
                     if not (isfile and readfile) then
                         Message = Instance.new('Message', Cloneref(game:GetService'CoreGui'))
-                        Message.Text = 'Your executor does not support this script\n(missing isfile, readfile)'
+                        Message.Text = 'Your executor "{ExecutorName}" does not support this script\n(missing isfile, readfile)'
                         task.wait(5)
                         return Message:Destroy()
                     end
@@ -62,7 +62,7 @@ if game.PlaceId == 6520999642 then
                     end)
                     print'Waiting for Remote Event'
                     Cloneref(game:GetService'ReplicatedStorage'):WaitForChild'Remotes':WaitForChild'PlatformRemoteEvent':FireServer(tostring(Context))
-                    print(`Fire Servered, your display platform was changed to {Context}`)
+                    print(`Fire Servered, your display platform was changed to "{Context}"`)
                 end
             ]])
             StarterGui:SetCore('SendNotification', {
@@ -84,7 +84,7 @@ if game.PlaceId == 6520999642 then
                 _G.FNFRemixACPD = true
             end
         else
-            Message(`Incompatible executor '{ExecutorName}'{'\n'}(missing queue_on_teleport)`)
+            Message(`Incompatible executor "{ExecutorName}"{'\n'}(missing queue_on_teleport)`)
         end
     end
 end
