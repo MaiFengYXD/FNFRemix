@@ -1,8 +1,7 @@
 --// Custom Display Platform by MikeFeng © GPL 3.0 (2025)
 
 if game.PlaceId == 6520999642 then
-    local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor and identifyexecutor() or ''
-    local CoreGui = Cloneref(game:GetService'CoreGui')
+    local ExecutorName, CoreGui = identifyexecutor and identifyexecutor() or '', game:GetService'CoreGui'
     local function Message(Text)
         local Message = Instance.new('Message', CoreGui)
         Message.Text = Text
@@ -11,9 +10,9 @@ if game.PlaceId == 6520999642 then
     end
     if isfile and readfile and writefile then
         writefile('FNFRemixDisplayContext.txt', Context ~= nil and tostring(Context) or '😇')
-        local StarterGui = Cloneref(game:GetService'StarterGui')
+        local StarterGui = game:GetService'StarterGui'
         local function Alert()
-            local Sound = Instance.new('Sound', Cloneref(game:GetService'SoundService'))
+            local Sound = Instance.new('Sound', game:GetService'SoundService')
             Sound.Volume = 2
             Sound.SoundId = 'rbxassetid://4590662766'
             Sound.PlayOnRemove = true
@@ -27,7 +26,7 @@ if game.PlaceId == 6520999642 then
             })
             Alert()
         else
-            local Players, TPService = Cloneref(game:GetService'Players'), Cloneref(game:GetService'TeleportService')
+            local Players, TPService = game:GetService'Players', game:GetService'TeleportService'
             local Speaker, QueueOnTP = Players.LocalPlayer, (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or queue_on_teleport
             local Rejoin = Instance.new('BindableFunction')
             Rejoin.OnInvoke = function(Answer)
@@ -49,9 +48,9 @@ if game.PlaceId == 6520999642 then
                 end)
                 QueueOnTP([[
                     if game.PlaceId == 6520999642 then
-                        local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor and identifyexecutor() or ''
+                        local ExecutorName = identifyexecutor and identifyexecutor() or ''
                         if isfile and readfile then
-                            local Context, Speaker = (isfile('FNFRemixDisplayContext.txt') and readfile('FNFRemixDisplayContext.txt')) or '😇', Cloneref(game:GetService'Players').LocalPlayer
+                            local Context, Speaker = (isfile('FNFRemixDisplayContext.txt') and readfile('FNFRemixDisplayContext.txt')) or '😇', game:GetService'Players'.LocalPlayer
                             task.spawn(function()
                                 PreCheck = Speaker:WaitForChild'PlayerScripts'.ChildAdded:Connect(function(Child)
                                     if Child:IsA'LocalScript' and Child.Name == 'PlatformDisplay' then
@@ -62,11 +61,11 @@ if game.PlaceId == 6520999642 then
                                 end)
                             end)
                             print'Waiting for Remote Event'
-                            Cloneref(game:GetService'ReplicatedStorage'):WaitForChild'Remotes':WaitForChild'PlatformRemoteEvent':FireServer(tostring(Context))
+                            game:GetService'ReplicatedStorage':WaitForChild'Remotes':WaitForChild'PlatformRemoteEvent':FireServer(tostring(Context))
                             print(`Fire Servered, your display platform was changed to '{Context}'`)
                             warn"If the owner BitWork joins your server, you'd better leave the game quickly 😨"
                         else
-                            local Message = Instance.new('Message', Cloneref(game:GetService'CoreGui'))
+                            local Message = Instance.new('Message', game:GetService'CoreGui')
                             Message.Text = `Your executor '{ExecutorName}' does not support this script\n(missing isfile, readfile)`
                             task.wait(5)
                             return Message:Destroy()
