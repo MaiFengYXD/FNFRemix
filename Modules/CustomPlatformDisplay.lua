@@ -1,7 +1,7 @@
 --// Custom Display Platform by MikeFeng © GPL 3.0 (2025)
 
 if game.PlaceId == 6520999642 then
-    local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor() or ''
+    local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor and identifyexecutor() or ''
     local CoreGui = Cloneref(game:GetService'CoreGui')
     local function Message(Text)
         local Message = Instance.new('Message', CoreGui)
@@ -51,7 +51,7 @@ if game.PlaceId == 6520999642 then
             end)
             QOTP([[
                 if game.PlaceId == 6520999642 then
-                    local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor() or ''
+                    local Cloneref, ExecutorName = cloneref or function(x) return x end, identifyexecutor and identifyexecutor() or ''
                     if not (isfile and readfile) then
                         Message = Instance.new('Message', Cloneref(game:GetService'CoreGui'))
                         Message.Text = `Your executor '{ExecutorName}' does not support this script\n(missing isfile, readfile)`
