@@ -71,6 +71,7 @@ if game.PlaceId == 6520999642 then
                     print'Waiting for Remote Event'
                     Cloneref(game:GetService'ReplicatedStorage'):WaitForChild'Remotes':WaitForChild'PlatformRemoteEvent':FireServer(tostring(Context))
                     print(`Fire Servered, your display platform was changed to '{Context}'`)
+                    print'If owner BitWork joined your server, you better leave the game 😨'
                 end
             ]])
             StarterGui:SetCore('SendNotification', {
