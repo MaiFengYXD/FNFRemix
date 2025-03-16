@@ -46,7 +46,7 @@ if game.PlaceId == 6520999642 then
         if QOTP then
             task.spawn(function()
                 if ExecutorName == 'Xeno' or ExecutorName == 'Solara' then
-                    Message(`Your executor '{ExecutorName}' may not be able to successfully change your display platform.{'\n'}(Your executor will wait for the game to load, which will delay the execution time of queue_on_teleport)`)
+                    Message(`Your executor '{ExecutorName}' may not work properly.{'\n'}(Your executor will wait for the game to load, which will delay the execution time of queue_on_teleport)`)
                 end
             end)
             QOTP([[
