@@ -14,7 +14,7 @@ if game.PlaceId == 6520999642 then
     end
     writefile('FNFRemixDisplayContext.txt', Context ~= nil and tostring(Context) or '😇')
     local StarterGui = Cloneref(game:GetService'StarterGui')
-    local function Notify()
+    local function Alert()
         local Sound = Instance.new('Sound', Cloneref(game:GetService'SoundService'))
         Sound.Volume = 2
         Sound.SoundId = 'rbxassetid://4590662766'
@@ -27,7 +27,7 @@ if game.PlaceId == 6520999642 then
             Text = `Your display platform context has been changed to '{Context}', rejoin to see your changes.`,
             Duration = 5
         })
-        Notify()
+        Alert()
     else
         local Players, TPService = Cloneref(game:GetService'Players'), Cloneref(game:GetService'TeleportService')
         local Speaker, QOTP = Players.LocalPlayer, (syn and syn.queue_on_teleport) or (fluxus and fluxus.queue_on_teleport) or queue_on_teleport
@@ -81,7 +81,7 @@ if game.PlaceId == 6520999642 then
                 Duration = (1 / 0),
                 Callback = Rejoin
             })
-            Notify()
+            Alert()
             if getgenv then
                 getgenv().FNFRemixACPD = true
             else
