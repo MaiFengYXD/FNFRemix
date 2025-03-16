@@ -72,6 +72,7 @@ if game.PlaceId == 6520999642 then
                         end
                     end
                 ]])
+                print(`Would you like to change your display platform context to '{Context}'?`)
                 StarterGui:SetCore('SendNotification', {
                     Title = 'Rejoin Required!',
                     Text = 'Changing your display platform requires you to rejoin. Would you like to rejoin now?',
