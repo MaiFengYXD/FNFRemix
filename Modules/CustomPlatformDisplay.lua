@@ -9,7 +9,7 @@ local function Message(Text)
     Message:Destroy()
 end
 if not (isfile and readfile and writefile) then return Message(`😩 Incompatible executor '{ExecutorName}'{'\n'}(missing isfile, readfile, writefile)`) end
-writefile('FNFRemixDisplayContext.txt', tostring(Context ~= nil and Context or '😇'))
+writefile('FNFRemixDisplayContent.txt', tostring(Content ~= nil and Content or '😇'))
 local StarterGui = game:GetService'StarterGui'
 local function Alert()
     local Sound = Instance.new('Sound', game:GetService'SoundService')
@@ -20,8 +20,8 @@ local function Alert()
 end
 if _G.FNFRemixACPD or getgenv and getgenv().FNFRemixACPD then
     StarterGui:SetCore('SendNotification', {
-        Title = '🧐 Changed Context!',
-        Text = `Your display platform context has been changed to '{Context}', rejoin to see your changes.`,
+        Title = '🧐 Changed Content!',
+        Text = `Your display platform Content has been changed to '{Content}', rejoin to see your changes.`,
         Duration = 5
     })
     return Alert()
@@ -55,7 +55,7 @@ QueueOnTP([[
         task.wait(5)
         return Message:Destroy()
     end
-    local Context, Speaker = (isfile('FNFRemixDisplayContext.txt') and readfile('FNFRemixDisplayContext.txt')) or '😇', game:GetService'Players'.LocalPlayer
+    local Content, Speaker = (isfile('FNFRemixDisplayContent.txt') and readfile('FNFRemixDisplayContent.txt')) or '😇', game:GetService'Players'.LocalPlayer
     task.spawn(function()
         PreCheck = Speaker:WaitForChild'PlayerScripts'.ChildAdded:Connect(function(Child)
             if Child:IsA'LocalScript' and Child.Name == 'PlatformDisplay' then
@@ -66,11 +66,11 @@ QueueOnTP([[
         end)
     end)
     print'🥱 Waiting for Remote Event'
-    game:GetService'ReplicatedStorage':WaitForChild'Remotes':WaitForChild'PlatformRemoteEvent':FireServer(tostring(Context))
-    print(`😉 Fire Servered, your display platform was changed to '{Context}'`)
+    game:GetService'ReplicatedStorage':WaitForChild'Remotes':WaitForChild'PlatformRemoteEvent':FireServer(tostring(Content))
+    print(`😉 Fire Servered, your display platform was changed to '{Content}'`)
     warn"😨 If the owner BitWork joins your server, you'd better leave the game quickly"
 ]])
-print(`🤫 Would you like to change your display platform context to '{Context}'?`)
+print(`🤫 Would you like to change your display platform Content to '{Content}'?`)
 StarterGui:SetCore('SendNotification', {
     Title = '🧐 Rejoin Required!',
     Text = 'Changing your display platform requires you to rejoin. Would you like to rejoin now?',
