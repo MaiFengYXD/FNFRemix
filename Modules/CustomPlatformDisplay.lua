@@ -9,7 +9,7 @@ local function Message(Text)
     Message:Destroy()
 end
 if not (isfile and readfile and writefile) then return Message(`😩 Incompatible executor '{ExecutorName}'{'\n'}(missing isfile, readfile, writefile)`) end
-writefile('FNFRemixDisplayContext.txt', tostring(Context ~= nil and Context or '😇'))s
+writefile('FNFRemixDisplayContext.txt', tostring(Context ~= nil and Context or '😇'))
 local StarterGui = game:GetService'StarterGui'
 local function Alert()
     local Sound = Instance.new('Sound', game:GetService'SoundService')
